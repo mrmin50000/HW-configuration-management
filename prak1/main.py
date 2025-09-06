@@ -10,6 +10,7 @@ CWD = os.getcwd()
 HOME = Path.home()
 VFS_PATH = sys.argv[1]
 SHITRC_PATH = sys.argv[2]
+i = 0
 
 if not os.path.isfile(VFS_PATH):
     print("not found vfs file")
@@ -19,16 +20,26 @@ if not os.path.isfile(SHITRC_PATH):
     exit()
 print(f'vfs file: {VFS_PATH}, shitrc file: {SHITRC_PATH}')
 
+with open(SHITRC_PATH, "r", encoding="utf-8") as file:
+    content = file.readlines()
+
 while True:
     CWD = os.getcwd()
     print(f'{HOSTNAME}@{USERNAME}:{CWD}$ ', end="")
-    command = input()
+
+    if i < len(content):
+        command = content[i].strip()
+        i+=1
+        print(f'{command}')
+    else:
+        command = input()
+
     if command == "exit":
-        break
+        exit()
     elif command[:3] == "cd ":
-        print(command)
+        cd(command[3:])
     elif command == "ls":
-        print(command)
+        ls()
     elif command == "":
         continue
     elif command[:4] == "echo":

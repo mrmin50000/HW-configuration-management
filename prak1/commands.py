@@ -10,6 +10,9 @@ def cd(path):
 def echo(text):
     print(parse(text))
 
+def ls():
+    print("ls")
+
 def parse(var):
     pattern = r'^\$\w+$'
     match = re.search(pattern, var)
@@ -17,3 +20,5 @@ def parse(var):
         return os.environ.get(var[1:])
     else:
         return var
+
+

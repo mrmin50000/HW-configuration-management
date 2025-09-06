@@ -1,5 +1,3 @@
-cd ..
-cd .
-ls
-cd ..
-ls
+echo $HOME
+echo $SHELL
+

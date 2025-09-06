@@ -1,0 +1,19 @@
+cd ..
+cd .
+ls
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+dc ..
+ls
+echo $HOME
+exit
